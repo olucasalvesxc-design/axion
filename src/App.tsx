@@ -290,54 +290,46 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECTION 2: AUTHORITY */}
-        <section id="about" className="py-24 px-6 bg-zinc-950/50">
-          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              className="relative rounded-3xl overflow-hidden aspect-[4/3] border border-zinc-800"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&fm=webp"
-                alt="Workspace"
-                loading="lazy"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
-              <div className="absolute bottom-10 left-10 text-white">
-                <p className="text-4xl font-bold mb-2">100%</p>
-                <p className="text-zinc-400 uppercase tracking-widest text-xs font-bold">Foco em Resultados</p>
-              </div>
-            </motion.div>
+        {/* SECTION 2: PROJECTS */}
+        <section id="portfolio" className="py-24 px-6 overflow-hidden">
+          <div className="max-w-7xl mx-auto">
+            <div className="text-center mb-20">
+              <p className="text-purple-500 font-bold uppercase tracking-widest text-xs mb-4">Portfólio</p>
+              <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">Projetos selecionados</h2>
+              <p className="text-zinc-400 max-w-2xl mx-auto text-lg mb-8">Alguns dos projetos desenvolvidos com foco em performance, conversão e experiência.</p>
 
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-            >
-              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
-                Construído para performance. <br />
-                <span className="text-purple-500 italic">Não para aparência.</span>
-              </h2>
-              <div className="space-y-6">
-                {[
-                  { icon: <Layers className="w-6 h-6" />, title: "Arquitetura estratégica", desc: "Cada decisão técnica é baseada no objetivo final do seu negócio." },
-                  { icon: <Target className="w-6 h-6" />, title: "Foco em conversão", desc: "Uso de gatilhos psicológicos e UX otimizada para capturar cada lead." },
-                  { icon: <Zap className="w-6 h-6" />, title: "Experiência otimizada", desc: "Tempo de carregamento e navegabilidade de alto nível global." },
-                  { icon: <Cpu className="w-6 h-6" />, title: "Integrações inteligentes", desc: "Conectamos sua aplicação com as melhores ferramentas do mercado." },
-                ].map((item, i) => (
-                  <div key={i} className="flex gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group">
-                    <div className="text-purple-500 group-hover:scale-110 transition-transform">{item.icon}</div>
-                    <div>
-                      <h4 className="text-lg font-bold text-white mb-1">{item.title}</h4>
-                      <p className="text-zinc-400">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+              <div className="p-4 rounded-full bg-white/5 border border-white/5 inline-block mx-auto mb-12">
+                <p className="text-zinc-300 text-sm font-medium italic">"Cada projeto é desenvolvido com foco em resultado — não apenas estética."</p>
               </div>
-            </motion.div>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  name: "Spot Tunner",
+                  description: "Produção audiovisual, jingles e spots publicitários de alto impacto.",
+                  result: "Qualidade de estúdio profissional",
+                  image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=75&w=800&auto=format&fit=crop&fm=webp",
+                  link: "https://www.spottunner.online"
+                },
+                {
+                  name: "Xpost",
+                  description: "Ferramenta estratégica para gestão e automação de postagens em redes sociais.",
+                  result: "Otimização de fluxo de trabalho",
+                  image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=75&w=800&auto=format&fit=crop&fm=webp",
+                  link: "https://xpostzone.online"
+                },
+                {
+                  name: "Vellox",
+                  description: "Gestão completa de entregas e motoboys para restaurantes e lanchonetes.",
+                  result: "Eficiência logística real-time",
+                  image: "/regenerated_image_1777520587756.webp",
+                  link: "https://www.appvellox.online"
+                }
+              ].map((project, i) => (
+                <ProjectCard key={i} {...project} delay={i * 0.1} />
+              ))}
+            </div>
           </div>
         </section>
 
@@ -518,46 +510,54 @@ export default function App() {
           </div>
         </section>
 
-        {/* SECTION 8: PROJECTS */}
-        <section id="portfolio" className="py-24 px-6 overflow-hidden">
-          <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-20">
-              <p className="text-purple-500 font-bold uppercase tracking-widest text-xs mb-4">Portfólio</p>
-              <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">Projetos selecionados</h2>
-              <p className="text-zinc-400 max-w-2xl mx-auto text-lg mb-8">Alguns dos projetos desenvolvidos com foco em performance, conversão e experiência.</p>
-              
-              <div className="p-4 rounded-full bg-white/5 border border-white/5 inline-block mx-auto mb-12">
-                <p className="text-zinc-300 text-sm font-medium italic">"Cada projeto é desenvolvido com foco em resultado — não apenas estética."</p>
+        {/* SECTION 8: AUTHORITY */}
+        <section id="about" className="py-24 px-6 bg-zinc-950/50">
+          <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative rounded-3xl overflow-hidden aspect-[4/3] border border-zinc-800"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&fm=webp"
+                alt="Workspace"
+                loading="lazy"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
+              <div className="absolute bottom-10 left-10 text-white">
+                <p className="text-4xl font-bold mb-2">100%</p>
+                <p className="text-zinc-400 uppercase tracking-widest text-xs font-bold">Foco em Resultados</p>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                {
-                  name: "Spot Tunner",
-                  description: "Produção audiovisual, jingles e spots publicitários de alto impacto.",
-                  result: "Qualidade de estúdio profissional",
-                  image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=75&w=800&auto=format&fit=crop&fm=webp",
-                  link: "https://www.spottunner.online"
-                },
-                {
-                  name: "Xpost",
-                  description: "Ferramenta estratégica para gestão e automação de postagens em redes sociais.",
-                  result: "Otimização de fluxo de trabalho",
-                  image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=75&w=800&auto=format&fit=crop&fm=webp",
-                  link: "https://xpostzone.online"
-                },
-                {
-                  name: "Vellox",
-                  description: "Gestão completa de entregas e motoboys para restaurantes e lanchonetes.",
-                  result: "Eficiência logística real-time",
-                  image: "/regenerated_image_1777520587756.webp",
-                  link: "https://www.appvellox.online"
-                }
-              ].map((project, i) => (
-                <ProjectCard key={i} {...project} delay={i * 0.1} />
-              ))}
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl lg:text-5xl font-bold text-white mb-8">
+                Construído para performance. <br />
+                <span className="text-purple-500 italic">Não para aparência.</span>
+              </h2>
+              <div className="space-y-6">
+                {[
+                  { icon: <Layers className="w-6 h-6" />, title: "Arquitetura estratégica", desc: "Cada decisão técnica é baseada no objetivo final do seu negócio." },
+                  { icon: <Target className="w-6 h-6" />, title: "Foco em conversão", desc: "Uso de gatilhos psicológicos e UX otimizada para capturar cada lead." },
+                  { icon: <Zap className="w-6 h-6" />, title: "Experiência otimizada", desc: "Tempo de carregamento e navegabilidade de alto nível global." },
+                  { icon: <Cpu className="w-6 h-6" />, title: "Integrações inteligentes", desc: "Conectamos sua aplicação com as melhores ferramentas do mercado." },
+                ].map((item, i) => (
+                  <div key={i} className="flex gap-4 p-4 rounded-xl hover:bg-white/5 transition-colors group">
+                    <div className="text-purple-500 group-hover:scale-110 transition-transform">{item.icon}</div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white mb-1">{item.title}</h4>
+                      <p className="text-zinc-400">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </section>
 
