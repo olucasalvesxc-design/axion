@@ -295,7 +295,7 @@ export default function App() {
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-20">
               <p className="text-purple-500 font-bold uppercase tracking-widest text-xs mb-4">Portfólio</p>
-              <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">Projetos selecionados</h2>
+              <h2 className="text-4xl lg:text-6xl font-bold text-white mb-6">Projetos feitos por mim</h2>
               <p className="text-zinc-400 max-w-2xl mx-auto text-lg mb-8">Alguns dos projetos desenvolvidos com foco em performance, conversão e experiência.</p>
 
               <div className="p-4 rounded-full bg-white/5 border border-white/5 inline-block mx-auto mb-12">
