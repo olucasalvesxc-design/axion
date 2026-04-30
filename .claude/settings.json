@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx vite *)",
+      "Bash(gh --version)",
+      "Bash(git --version)",
+      "Bash(gh auth *)",
+      "Bash(git init *)"
+    ]
+  }
+}
