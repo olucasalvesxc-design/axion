@@ -22,17 +22,17 @@ export default defineConfig(({mode}) => {
           display: 'standalone',
           icons: [
             {
-              src: 'logo_axion.svg',
+              src: 'logo_axion_192.png',
               sizes: '192x192',
               type: 'image/png'
             },
             {
-              src: 'logo_axion.svg',
+              src: 'logo_axion_512.png',
               sizes: '512x512',
               type: 'image/png'
             },
             {
-              src: 'logo_axion.svg',
+              src: 'logo_axion_512.png',
               sizes: '512x512',
               type: 'image/png',
               purpose: 'any maskable'

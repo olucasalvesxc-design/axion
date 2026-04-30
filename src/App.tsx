@@ -95,6 +95,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ image, name, description, res
       <img
         src={image}
         alt={name}
+        loading="lazy"
         className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
       />
     </div>
@@ -248,9 +249,10 @@ export default function App() {
               <div className="absolute -inset-4 bg-purple-600/10 blur-3xl rounded-full opacity-30 z-0 animate-pulse" />
               
               {/* Hero Image - User Photo */}
-              <img 
-                src="/regenerated_image_1777520554489.png" 
-                alt="Lukas - Axion Ai" 
+              <img
+                src="/regenerated_image_1777520554489.webp"
+                alt="Lukas - Axion Ai"
+                fetchPriority="high"
                 className="w-full h-full object-cover object-center transition-all duration-1000 scale-[1.02] group-hover:scale-105"
               />
               
@@ -297,9 +299,10 @@ export default function App() {
               viewport={{ once: true }}
               className="relative rounded-3xl overflow-hidden aspect-[4/3] border border-zinc-800"
             >
-              <img 
-                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=2072&auto=format&fit=crop" 
-                alt="Workspace" 
+              <img
+                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1200&auto=format&fit=crop&fm=webp"
+                alt="Workspace"
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent" />
@@ -462,7 +465,7 @@ export default function App() {
                   whileHover={{ y: -10 }}
                   className="group relative rounded-3xl overflow-hidden aspect-[4/5] border border-zinc-800"
                 >
-                  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" className="w-full h-full object-cover transition-all duration-700" alt="Project 1" />
+                  <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop&fm=webp" loading="lazy" className="w-full h-full object-cover transition-all duration-700" alt="Project 1" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60" />
                   <div className="absolute bottom-8 left-8">
                     <p className="text-xs font-bold text-purple-400 uppercase tracking-widest mb-2">Fintech SaaS</p>
@@ -473,7 +476,7 @@ export default function App() {
                   whileHover={{ y: -10 }}
                   className="group relative rounded-3xl overflow-hidden aspect-[4/5] border border-zinc-800"
                 >
-                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" className="w-full h-full object-cover transition-all duration-700" alt="Project 2" />
+                  <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop&fm=webp" loading="lazy" className="w-full h-full object-cover transition-all duration-700" alt="Project 2" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60" />
                   <div className="absolute bottom-8 left-8">
                     <p className="text-xs font-bold text-blue-400 uppercase tracking-widest mb-2">E-commerce Engine</p>
@@ -534,21 +537,21 @@ export default function App() {
                   name: "Spot Tunner",
                   description: "Produção audiovisual, jingles e spots publicitários de alto impacto.",
                   result: "Qualidade de estúdio profissional",
-                  image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=2070&auto=format&fit=crop",
+                  image: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=75&w=800&auto=format&fit=crop&fm=webp",
                   link: "https://www.spottunner.online"
                 },
                 {
                   name: "Xpost",
                   description: "Ferramenta estratégica para gestão e automação de postagens em redes sociais.",
                   result: "Otimização de fluxo de trabalho",
-                  image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop",
+                  image: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=75&w=800&auto=format&fit=crop&fm=webp",
                   link: "https://xpostzone.online"
                 },
                 {
                   name: "Vellox",
                   description: "Gestão completa de entregas e motoboys para restaurantes e lanchonetes.",
                   result: "Eficiência logística real-time",
-                  image: "/regenerated_image_1777520587756.png",
+                  image: "/regenerated_image_1777520587756.webp",
                   link: "https://www.appvellox.online"
                 }
               ].map((project, i) => (

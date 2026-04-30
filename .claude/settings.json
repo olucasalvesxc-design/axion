@@ -5,7 +5,12 @@
       "Bash(gh --version)",
       "Bash(git --version)",
       "Bash(gh auth *)",
-      "Bash(git init *)"
+      "Bash(git init *)",
+      "Bash(git remote *)",
+      "Bash(git branch *)",
+      "Bash(node -e \"require\\('sharp'\\)\")",
+      "Bash(node compress-images.mjs)",
+      "Bash(node generate-icon.mjs)"
     ]
   }
 }
