@@ -61,18 +61,6 @@ const FILTER_MAP: Record<string, ProjectType | null> = {
 
 const PROJECTS: Project[] = [
   {
-    id: 'spot-tunner',
-    name: 'Spot Tunner',
-    type: 'Site',
-    description: 'Plataforma de produção audiovisual especializada em jingles, spots e conteúdo sonoro de alto impacto para marcas.',
-    objective: 'Captação de leads e vendas online',
-    technologies: ['React', 'Next.js', 'Tailwind CSS'],
-    image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=75&w=800&auto=format&fit=crop&fm=webp',
-    link: 'https://www.spottunner.online',
-    featured: true,
-    impact: 'Vendas online',
-  },
-  {
     id: 'vellox',
     name: 'Vellox',
     type: 'App',
@@ -117,7 +105,7 @@ const PROJECTS: Project[] = [
     technologies: ['React', 'Tailwind CSS'],
     image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=75&w=800&auto=format&fit=crop&fm=webp',
     link: 'https://www.jpproducoes.online',
-    featured: false,
+    featured: true,
     impact: '+ presença digital e geração de leads',
   },
   // ── Placeholders — troque image, name, link e description ──
