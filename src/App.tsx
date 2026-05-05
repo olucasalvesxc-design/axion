@@ -103,7 +103,7 @@ const PROJECTS: Project[] = [
     description: 'Estrutura digital pensada para atrair clientes e valorizar serviços audiovisuais.',
     objective: 'Gerar leads e apresentar serviços de forma estratégica.',
     technologies: ['React', 'Tailwind CSS'],
-    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=75&w=800&auto=format&fit=crop&fm=webp',
+    image: 'https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=75&w=800&auto=format&fit=crop&fm=webp',
     link: 'https://www.jpproducoes.online',
     featured: true,
     impact: '+ presença digital e geração de leads',
