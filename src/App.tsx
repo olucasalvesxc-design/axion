@@ -96,6 +96,30 @@ const PROJECTS: Project[] = [
     featured: false,
     impact: 'Otimização de fluxo',
   },
+  {
+    id: 'runmanager',
+    name: 'RunManager',
+    type: 'Sistema Web',
+    description: 'Plataforma completa com foco em escala e gestão inteligente de corridas e treinos.',
+    objective: 'Organizar eventos, gerenciar participantes e automatizar processos.',
+    technologies: ['React', 'Node.js', 'PostgreSQL'],
+    image: 'https://images.unsplash.com/photo-1571008887538-b36bb32f4571?q=75&w=800&auto=format&fit=crop&fm=webp',
+    link: 'https://www.runmanager.online',
+    featured: true,
+    impact: 'Gestão inteligente de eventos',
+  },
+  {
+    id: 'jp-producoes',
+    name: 'JP Produções',
+    type: 'Landing Page',
+    description: 'Estrutura digital pensada para atrair clientes e valorizar serviços audiovisuais.',
+    objective: 'Gerar leads e apresentar serviços de forma estratégica.',
+    technologies: ['React', 'Tailwind CSS'],
+    image: 'https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?q=75&w=800&auto=format&fit=crop&fm=webp',
+    link: 'https://www.jpproducoes.online',
+    featured: false,
+    impact: '+ presença digital e geração de leads',
+  },
   // ── Placeholders — troque image, name, link e description ──
   {
     id: 'placeholder-lp',
@@ -497,7 +521,7 @@ export default function App() {
                 <span className="text-gradient">Eles trabalham pelo negócio.</span>
               </h2>
               <p className="text-zinc-400 max-w-2xl mx-auto text-lg leading-relaxed">
-                Cada interface foi pensada para resolver um problema real: gerar leads, organizar operações, vender melhor ou transformar uma ideia em produto digital.
+                Cada projeto foi desenvolvido com foco em resultado — seja para vender mais, automatizar processos ou posicionar a marca com autoridade.
               </p>
             </motion.div>
 
