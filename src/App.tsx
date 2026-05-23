@@ -34,8 +34,8 @@ const WA = "https://wa.me/5581973014080?text=Olá%20Lukas!%20Gostaria%20de%20faz
 const EASE = [0.22, 1, 0.36, 1] as const;
 
 const STATUS_CONFIG: Record<ProjectStatus, { icon: React.ReactNode; color: string; dot: string }> = {
-  'Online':            { icon: <CheckCircle2 className="w-3.5 h-3.5" />, color: 'text-emerald-400', dot: 'bg-emerald-400' },
-  'Em desenvolvimento':{ icon: <Clock className="w-3.5 h-3.5" />,       color: 'text-orange-400',  dot: 'bg-orange-400'  },
+  'Online':            { icon: <CheckCircle2 className="w-3.5 h-3.5" />, color: 'text-purple-400', dot: 'bg-purple-400' },
+  'Em desenvolvimento':{ icon: <Clock className="w-3.5 h-3.5" />,       color: 'text-fuchsia-400',  dot: 'bg-fuchsia-400'  },
   'Em breve':          { icon: <Rocket className="w-3.5 h-3.5" />,      color: 'text-zinc-400',    dot: 'bg-zinc-400'    },
 };
 
@@ -141,7 +141,7 @@ const ParticleField: React.FC = () => {
       {particles.map(p => (
         <motion.div
           key={p.id}
-          className={`absolute rounded-full ${p.green ? 'bg-emerald-400' : 'bg-orange-400'}`}
+          className={`absolute rounded-full ${p.green ? 'bg-purple-400' : 'bg-fuchsia-400'}`}
           style={{ left: `${p.x}%`, top: `${p.y}%`, width: p.size, height: p.size }}
           animate={{ y: [-20, 20, -20], opacity: [0.15, 0.6, 0.15] }}
           transition={{ duration: p.duration, delay: p.delay, repeat: Infinity, ease: 'easeInOut' }}
@@ -151,8 +151,8 @@ const ParticleField: React.FC = () => {
       <svg className="absolute inset-0 w-full h-full opacity-[0.04]" xmlns="http://www.w3.org/2000/svg">
         <defs>
           <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stopColor="#10b981" />
-            <stop offset="100%" stopColor="#f97316" />
+            <stop offset="0%" stopColor="#a855f7" />
+            <stop offset="100%" stopColor="#d946ef" />
           </linearGradient>
         </defs>
         {Array.from({ length: 6 }, (_, i) => (
@@ -175,13 +175,13 @@ const FloatingNotification: React.FC<{ delay: number; style?: React.CSSPropertie
     style={style}
   >
     <div className="flex items-center gap-2 mb-1">
-      <Bell className="w-3.5 h-3.5 text-emerald-400" />
+      <Bell className="w-3.5 h-3.5 text-purple-400" />
       <span className="text-zinc-400 text-xs">Novo pedido</span>
     </div>
     <p className="text-white text-sm font-semibold">Vellox — #4821</p>
     <div className="flex items-center gap-1.5 mt-1">
-      <div className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-      <span className="text-emerald-400 text-xs font-medium">Em rota</span>
+      <div className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
+      <span className="text-purple-400 text-xs font-medium">Em rota</span>
     </div>
   </motion.div>
 );
@@ -196,7 +196,7 @@ const FloatingMetric: React.FC<{ delay: number; style?: React.CSSProperties; val
   >
     <p className="text-zinc-500 text-xs mb-1">{label}</p>
     <p className="text-white text-2xl font-bold">{value}</p>
-    <div className="flex items-center gap-1 mt-1 text-emerald-400 text-xs font-semibold">
+    <div className="flex items-center gap-1 mt-1 text-purple-400 text-xs font-semibold">
       <TrendingUp className="w-3 h-3" />
       {trend}
     </div>
@@ -212,11 +212,11 @@ const FloatingUsers: React.FC<{ delay: number; style?: React.CSSProperties }> = 
     style={style}
   >
     <div className="flex items-center gap-2 mb-2">
-      <Users className="w-3.5 h-3.5 text-orange-400" />
+      <Users className="w-3.5 h-3.5 text-fuchsia-400" />
       <span className="text-zinc-400 text-xs">Usuários ativos</span>
     </div>
     <div className="flex -space-x-2">
-      {['bg-emerald-500', 'bg-orange-400', 'bg-purple-500', 'bg-blue-500'].map((c, i) => (
+      {['bg-purple-500', 'bg-fuchsia-400', 'bg-purple-500', 'bg-blue-500'].map((c, i) => (
         <div key={i} className={`w-7 h-7 rounded-full ${c} border-2 border-zinc-900`} />
       ))}
       <div className="w-7 h-7 rounded-full bg-zinc-700 border-2 border-zinc-900 flex items-center justify-center text-[9px] text-zinc-300 font-bold">+9</div>
@@ -260,7 +260,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
       transition={{ duration: 0.6, delay: index * 0.08, ease: EASE }}
       whileHover={{ y: -6 }}
       className={`group relative flex flex-col rounded-2xl border bg-zinc-900/50 backdrop-blur-sm overflow-hidden transition-all duration-400
-        ${project.accentGreen ? 'border-zinc-800 hover:border-emerald-500/40 hover:shadow-[0_0_40px_rgba(16,185,129,0.1)]' : 'border-zinc-800 hover:border-orange-500/40 hover:shadow-[0_0_40px_rgba(249,115,22,0.1)]'}`}
+        ${project.accentGreen ? 'border-zinc-800 hover:border-purple-500/40 hover:shadow-[0_0_40px_rgba(168,85,247,0.1)]' : 'border-zinc-800 hover:border-fuchsia-500/40 hover:shadow-[0_0_40px_rgba(217,70,239,0.1)]'}`}
     >
       <div className="relative aspect-video overflow-hidden">
         <img src={project.image} alt={project.name} loading="lazy"
@@ -268,7 +268,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/30 to-transparent" />
         <div className="absolute top-3 left-3">
           <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-sm
-            ${project.accentGreen ? 'bg-emerald-500/15 border border-emerald-500/30 text-emerald-400' : 'bg-orange-500/15 border border-orange-500/30 text-orange-400'}`}>
+            ${project.accentGreen ? 'bg-purple-500/15 border border-purple-500/30 text-purple-400' : 'bg-fuchsia-500/15 border border-fuchsia-500/30 text-fuchsia-400'}`}>
             {project.category}
           </span>
         </div>
@@ -284,7 +284,7 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
           <h3 className="text-xl font-bold text-white mb-2">{project.name}</h3>
           <p className="text-zinc-400 text-sm leading-relaxed">{project.description}</p>
         </div>
-        <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest ${project.accentGreen ? 'text-emerald-400' : 'text-orange-400'}`}>
+        <div className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest ${project.accentGreen ? 'text-purple-400' : 'text-fuchsia-400'}`}>
           <Star className="w-3.5 h-3.5" />
           {project.highlight}
         </div>
@@ -296,8 +296,8 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
           className={`mt-auto w-full flex items-center justify-center gap-2 py-3 rounded-xl font-bold text-sm transition-all
             ${project.link === '#' ? 'bg-zinc-800 text-zinc-500 cursor-not-allowed'
               : project.accentGreen
-                ? 'bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 hover:bg-emerald-500 hover:text-black hover:border-emerald-500'
-                : 'bg-orange-500/10 border border-orange-500/30 text-orange-400 hover:bg-orange-500 hover:text-black hover:border-orange-500'}`}
+                ? 'bg-purple-500/10 border border-purple-500/30 text-purple-400 hover:bg-purple-500 hover:text-black hover:border-purple-500'
+                : 'bg-fuchsia-500/10 border border-fuchsia-500/30 text-fuchsia-400 hover:bg-fuchsia-500 hover:text-black hover:border-fuchsia-500'}`}
         >
           {project.link === '#' ? 'Em breve' : (<>Ver detalhes <ExternalLink className="w-3.5 h-3.5" /></>)}
         </a>
@@ -338,13 +338,13 @@ export default function App() {
   const mockupY = useTransform(springY, [-1, 1], [-8, 8]);
 
   return (
-    <div className="min-h-screen bg-[#050505] text-zinc-100 font-sans selection:bg-emerald-500/30">
+    <div className="min-h-screen bg-[#050505] text-zinc-100 font-sans selection:bg-purple-500/30">
 
       {/* Ambient background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-emerald-900/12 blur-[150px] rounded-full" />
-        <div className="absolute bottom-[0%] left-[-15%] w-[45%] h-[45%] bg-orange-900/10 blur-[150px] rounded-full" />
-        <div className="absolute top-[40%] left-[30%] w-[30%] h-[30%] bg-emerald-900/6 blur-[100px] rounded-full" />
+        <div className="absolute top-[-20%] right-[-10%] w-[50%] h-[50%] bg-purple-900/12 blur-[150px] rounded-full" />
+        <div className="absolute bottom-[0%] left-[-15%] w-[45%] h-[45%] bg-fuchsia-900/10 blur-[150px] rounded-full" />
+        <div className="absolute top-[40%] left-[30%] w-[30%] h-[30%] bg-purple-900/6 blur-[100px] rounded-full" />
       </div>
 
       {/* ── NAV ──────────────────────────────────────────────────────────── */}
@@ -365,7 +365,7 @@ export default function App() {
             <a href="#services" className="hover:text-white transition-colors">Serviços</a>
             <a href="#about" className="hover:text-white transition-colors">Sobre</a>
             <a href={WA} target="_blank" rel="noopener noreferrer"
-              className="px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold transition-all hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(16,185,129,0.4)]">
+              className="px-5 py-2.5 rounded-xl bg-purple-500 hover:bg-purple-400 text-black font-bold transition-all hover:scale-[1.03] hover:shadow-[0_0_20px_rgba(168,85,247,0.4)]">
               Falar comigo
             </a>
           </div>
@@ -386,9 +386,9 @@ export default function App() {
             <div className="flex flex-col gap-8 text-4xl font-bold tracking-tight text-center">
               {['#projects:Projetos', '#services:Serviços', '#about:Sobre'].map(item => {
                 const [href, label] = item.split(':');
-                return <a key={href} href={href} onClick={() => setIsMenuOpen(false)} className="hover:text-emerald-400 transition-colors">{label}</a>;
+                return <a key={href} href={href} onClick={() => setIsMenuOpen(false)} className="hover:text-purple-400 transition-colors">{label}</a>;
               })}
-              <a href={WA} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="text-emerald-400">Falar comigo</a>
+              <a href={WA} target="_blank" rel="noopener noreferrer" onClick={() => setIsMenuOpen(false)} className="text-purple-400">Falar comigo</a>
             </div>
           </motion.div>
         )}
@@ -407,7 +407,7 @@ export default function App() {
 
           {/* Radial hero glow */}
           <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-emerald-900/10 rounded-full blur-[120px]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-900/10 rounded-full blur-[120px]" />
           </div>
 
           <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -416,10 +416,10 @@ export default function App() {
             <div>
               <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: EASE }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-green text-emerald-400 text-xs font-bold uppercase tracking-widest mb-8">
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-green text-purple-400 text-xs font-bold uppercase tracking-widest mb-8">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500" />
                 </span>
                 Software House Profissional
               </motion.div>
@@ -453,14 +453,14 @@ export default function App() {
                 className="flex flex-col sm:flex-row gap-4 mb-14"
               >
                 <a href="#projects"
-                  className="group relative px-8 py-4 rounded-xl border border-emerald-500/50 text-emerald-400 font-bold flex items-center justify-center gap-2 transition-all hover:bg-emerald-500/10 hover:border-emerald-400 overflow-hidden">
+                  className="group relative px-8 py-4 rounded-xl border border-purple-500/50 text-purple-400 font-bold flex items-center justify-center gap-2 transition-all hover:bg-purple-500/10 hover:border-purple-400 overflow-hidden">
                   <span className="relative z-10 flex items-center gap-2">
                     Ver projetos
                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </a>
                 <a href={WA} target="_blank" rel="noopener noreferrer"
-                  className="px-8 py-4 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)]">
+                  className="px-8 py-4 rounded-xl bg-purple-500 hover:bg-purple-400 text-black font-bold flex items-center justify-center gap-2 transition-all hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
                   <MessageCircle className="w-5 h-5" />
                   Falar no WhatsApp
                 </a>
@@ -508,7 +508,7 @@ export default function App() {
                     url="app.vellox.com"
                   />
                   {/* Glow under browser */}
-                  <div className="h-4 mx-8 bg-emerald-500/20 blur-xl rounded-full mt-1" />
+                  <div className="h-4 mx-8 bg-purple-500/20 blur-xl rounded-full mt-1" />
                 </motion.div>
               </motion.div>
 
@@ -541,13 +541,13 @@ export default function App() {
                 initial={{ opacity: 0, x: 40 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.9, delay: 0.4, ease: EASE }}
-                className="absolute top-0 right-0 w-24 h-24 rounded-full overflow-hidden border-2 border-emerald-500/50 shadow-[0_0_20px_rgba(16,185,129,0.3)] z-20"
+                className="absolute top-0 right-0 w-24 h-24 rounded-full overflow-hidden border-2 border-purple-500/50 shadow-[0_0_20px_rgba(168,85,247,0.3)] z-20"
               >
                 <img src="/regenerated_image_1777520554489.webp" alt="Lukas" className="w-full h-full object-cover object-top" />
               </motion.div>
 
               {/* Ambient glow */}
-              <div className="absolute inset-0 bg-emerald-500/4 blur-3xl rounded-full pointer-events-none" />
+              <div className="absolute inset-0 bg-purple-500/4 blur-3xl rounded-full pointer-events-none" />
             </motion.div>
           </div>
 
@@ -563,7 +563,7 @@ export default function App() {
               transition={{ duration: 1.5, repeat: Infinity }}
               className="w-5 h-8 rounded-full border border-zinc-700 flex items-start justify-center pt-1.5"
             >
-              <div className="w-1 h-2 bg-emerald-500 rounded-full" />
+              <div className="w-1 h-2 bg-purple-500 rounded-full" />
             </motion.div>
           </motion.div>
         </section>
@@ -572,7 +572,7 @@ export default function App() {
         <section className="py-20 overflow-hidden border-y border-zinc-900">
           <div className="max-w-7xl mx-auto px-6 mb-10 text-center">
             <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }}>
-              <p className="text-emerald-500 font-bold uppercase tracking-widest text-xs mb-3">Interfaces reais</p>
+              <p className="text-purple-500 font-bold uppercase tracking-widest text-xs mb-3">Interfaces reais</p>
               <h2 className="text-3xl lg:text-4xl font-bold text-white">Projetos com padrão profissional</h2>
             </motion.div>
           </div>
@@ -593,7 +593,7 @@ export default function App() {
           <div className="max-w-7xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.6, ease: EASE }} className="mb-16">
-              <p className="text-emerald-500 font-bold uppercase tracking-widest text-xs mb-4">Portfólio</p>
+              <p className="text-purple-500 font-bold uppercase tracking-widest text-xs mb-4">Portfólio</p>
               <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6">
                 <h2 className="text-4xl lg:text-5xl font-bold text-white max-w-xl">Cada projeto, um produto digital completo.</h2>
                 <p className="text-zinc-400 max-w-sm lg:text-right">Desenvolvidos com foco em usabilidade, performance e resultado real.</p>
@@ -610,7 +610,7 @@ export default function App() {
           <div className="max-w-7xl mx-auto">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.6, ease: EASE }} className="mb-16 text-center">
-              <p className="text-emerald-500 font-bold uppercase tracking-widest text-xs mb-4">O que eu faço</p>
+              <p className="text-purple-500 font-bold uppercase tracking-widest text-xs mb-4">O que eu faço</p>
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-4">Especialidades</h2>
               <p className="text-zinc-400 max-w-xl mx-auto">Do conceito ao produto final — cada entrega com padrão de empresa grande.</p>
             </motion.div>
@@ -618,8 +618,8 @@ export default function App() {
               {SERVICES.map((s, i) => (
                 <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.07, ease: EASE }} whileHover={{ y: -4 }}
-                  className="group flex items-start gap-5 p-6 rounded-2xl border border-zinc-800 hover:border-emerald-500/30 bg-zinc-900/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(16,185,129,0.08)] cursor-default">
-                  <div className="p-3 rounded-xl bg-emerald-500/10 text-emerald-400 group-hover:bg-emerald-500/20 group-hover:scale-110 transition-all duration-300">{s.icon}</div>
+                  className="group flex items-start gap-5 p-6 rounded-2xl border border-zinc-800 hover:border-purple-500/30 bg-zinc-900/40 transition-all duration-300 hover:shadow-[0_0_30px_rgba(168,85,247,0.08)] cursor-default">
+                  <div className="p-3 rounded-xl bg-purple-500/10 text-purple-400 group-hover:bg-purple-500/20 group-hover:scale-110 transition-all duration-300">{s.icon}</div>
                   <div>
                     <h3 className="text-lg font-bold text-white mb-1">{s.label}</h3>
                     <p className="text-zinc-500 text-sm">{s.desc}</p>
@@ -635,7 +635,7 @@ export default function App() {
           <div className="max-w-5xl mx-auto text-center">
             <motion.div initial={{ opacity: 0, scale: 0.96 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
               transition={{ duration: 0.7, ease: EASE }}>
-              <div className="inline-block px-5 py-2 rounded-full glass-green text-emerald-400 text-xs font-bold uppercase tracking-widest mb-10">Diferencial</div>
+              <div className="inline-block px-5 py-2 rounded-full glass-green text-purple-400 text-xs font-bold uppercase tracking-widest mb-10">Diferencial</div>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                 Não entrego apenas sites.{' '}
                 <br className="hidden md:block" />
@@ -659,19 +659,19 @@ export default function App() {
                 <img src="/regenerated_image_1777520554489.webp" alt="Lukas — Axion" loading="lazy"
                   className="w-full h-full object-cover object-center" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent opacity-80" />
-                <div className="absolute inset-0 border border-emerald-500/10 rounded-3xl" />
+                <div className="absolute inset-0 border border-purple-500/10 rounded-3xl" />
               </div>
               <div className="absolute bottom-6 left-6 glass-green rounded-2xl px-5 py-4">
                 <p className="text-zinc-400 text-xs mb-0.5">Fundador</p>
                 <p className="text-white font-bold text-lg">Lukas Alves</p>
-                <p className="text-emerald-400 text-xs font-semibold">Axion Intelligence</p>
+                <p className="text-purple-400 text-xs font-semibold">Axion Intelligence</p>
               </div>
-              <div className="absolute -top-4 -right-4 w-32 h-32 bg-emerald-500/8 rounded-full blur-3xl" />
+              <div className="absolute -top-4 -right-4 w-32 h-32 bg-purple-500/8 rounded-full blur-3xl" />
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.7, ease: EASE }}>
-              <p className="text-emerald-500 font-bold uppercase tracking-widest text-xs mb-6">Sobre</p>
+              <p className="text-purple-500 font-bold uppercase tracking-widest text-xs mb-6">Sobre</p>
               <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">Criando a Axion para elevar o padrão digital.</h2>
               <div className="space-y-4 text-zinc-400 leading-relaxed">
                 <p>Sou Lukas, desenvolvedor full-stack e fundador da Axion Intelligence — um estúdio digital focado em criar produtos e sistemas com padrão de empresa grande.</p>
@@ -680,7 +680,7 @@ export default function App() {
               </div>
               <div className="mt-10 flex flex-wrap gap-3">
                 {['React', 'Next.js', 'Node.js', 'TypeScript', 'Supabase', 'Tailwind CSS'].map(tech => (
-                  <span key={tech} className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-emerald-500/30 text-zinc-300 text-sm font-medium transition-colors cursor-default">{tech}</span>
+                  <span key={tech} className="px-4 py-2 rounded-xl bg-zinc-900 border border-zinc-800 hover:border-purple-500/30 text-zinc-300 text-sm font-medium transition-colors cursor-default">{tech}</span>
                 ))}
               </div>
             </motion.div>
@@ -693,10 +693,10 @@ export default function App() {
             <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               transition={{ duration: 0.7, ease: EASE }}
               className="relative rounded-3xl overflow-hidden p-12 lg:p-20 text-center border border-zinc-800"
-              style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(16,185,129,0.14) 0%, transparent 70%), #080808' }}>
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-emerald-500/70 to-transparent" />
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-green text-emerald-400 text-xs font-bold uppercase tracking-widest mb-8">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              style={{ background: 'radial-gradient(ellipse at 50% 0%, rgba(168,85,247,0.14) 0%, transparent 70%), #080808' }}>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-2/3 h-px bg-gradient-to-r from-transparent via-purple-500/70 to-transparent" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-green text-purple-400 text-xs font-bold uppercase tracking-widest mb-8">
+                <span className="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse" />
                 Disponível para novos projetos
               </div>
               <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
@@ -705,7 +705,7 @@ export default function App() {
               </h2>
               <p className="text-zinc-400 text-xl mb-10 max-w-xl mx-auto">Análise estratégica gratuita. Resposta em até 24h.</p>
               <a href={WA} target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-lg transition-all hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(16,185,129,0.5)]">
+                className="inline-flex items-center gap-3 px-10 py-5 rounded-2xl bg-purple-500 hover:bg-purple-400 text-black font-bold text-lg transition-all hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(168,85,247,0.5)]">
                 <MessageCircle className="w-6 h-6" />
                 Falar no WhatsApp
               </a>
@@ -723,9 +723,9 @@ export default function App() {
           </div>
           <p className="text-zinc-600 text-sm">© {new Date().getFullYear()} Axion Intelligence. Todos os direitos reservados.</p>
           <div className="flex gap-6 text-sm text-zinc-500">
-            <a href={WA} target="_blank" rel="noopener noreferrer" className="hover:text-emerald-400 transition-colors">WhatsApp</a>
-            <a href="#" className="hover:text-emerald-400 transition-colors">Instagram</a>
-            <a href="#" className="hover:text-emerald-400 transition-colors">LinkedIn</a>
+            <a href={WA} target="_blank" rel="noopener noreferrer" className="hover:text-purple-400 transition-colors">WhatsApp</a>
+            <a href="#" className="hover:text-purple-400 transition-colors">Instagram</a>
+            <a href="#" className="hover:text-purple-400 transition-colors">LinkedIn</a>
           </div>
         </div>
       </footer>
@@ -733,7 +733,7 @@ export default function App() {
       {/* Floating WhatsApp */}
       <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ delay: 1.5, type: 'spring' }} className="fixed bottom-8 right-8 z-[100]">
         <a href={WA} target="_blank" rel="noopener noreferrer"
-          className="w-14 h-14 rounded-full bg-emerald-500 hover:bg-emerald-400 flex items-center justify-center text-black shadow-xl hover:scale-110 transition-all hover:shadow-[0_0_30px_rgba(16,185,129,0.5)]">
+          className="w-14 h-14 rounded-full bg-purple-500 hover:bg-purple-400 flex items-center justify-center text-black shadow-xl hover:scale-110 transition-all hover:shadow-[0_0_30px_rgba(168,85,247,0.5)]">
           <MessageCircle className="w-7 h-7" />
         </a>
       </motion.div>
