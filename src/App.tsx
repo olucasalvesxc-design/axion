@@ -8,19 +8,14 @@ import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from
 import {
   ArrowRight, MessageCircle, Menu, X, ExternalLink,
   Globe, Layers, Smartphone, BarChart3, Zap, Code2,
-  CheckCircle2, Clock, Rocket, Star, TrendingUp, Bell, Users
+  Star, TrendingUp, Bell, Users
 } from 'lucide-react';
 
 // ─── Types ───────────────────────────────────────────────────────────────────
 
-type ProjectStatus = 'Online' | 'Em desenvolvimento' | 'Em breve';
-type ProjectCategory = 'App' | 'Sistema Web' | 'SaaS' | 'Landing Page';
-
 interface Project {
   id: string;
   name: string;
-  category: ProjectCategory;
-  status: ProjectStatus;
   description: string;
   image: string;
   link: string;
@@ -33,20 +28,12 @@ interface Project {
 const WA = "https://wa.me/5581973014080?text=Olá%20Lukas!%20Gostaria%20de%20fazer%20uma%20análise%20do%20meu%20projeto%20para%20um%20site%20premium.";
 const EASE = [0.22, 1, 0.36, 1] as const;
 
-const STATUS_CONFIG: Record<ProjectStatus, { icon: React.ReactNode; color: string; dot: string }> = {
-  'Online':            { icon: <CheckCircle2 className="w-3.5 h-3.5" />, color: 'text-purple-400', dot: 'bg-purple-400' },
-  'Em desenvolvimento':{ icon: <Clock className="w-3.5 h-3.5" />,       color: 'text-fuchsia-400',  dot: 'bg-fuchsia-400'  },
-  'Em breve':          { icon: <Rocket className="w-3.5 h-3.5" />,      color: 'text-zinc-400',    dot: 'bg-zinc-400'    },
-};
-
 // ─── Projects ────────────────────────────────────────────────────────────────
 
 const PROJECTS: Project[] = [
   {
     id: 'vellox',
     name: 'Vellox',
-    category: 'App',
-    status: 'Online',
     description: 'Sistema de gestão de entregas e motoboys em tempo real para restaurantes e lanchonetes.',
     image: '/VELLOX.png',
     link: 'https://www.appvellox.online',
@@ -56,8 +43,6 @@ const PROJECTS: Project[] = [
   {
     id: 'xpost',
     name: 'XPost',
-    category: 'SaaS',
-    status: 'Em breve',
     description: 'Plataforma inteligente para criação, agendamento e gestão de conteúdo nas redes sociais.',
     image: '/XPOST.png',
     link: 'https://www.xpostzone.online',
@@ -67,8 +52,6 @@ const PROJECTS: Project[] = [
   {
     id: 'run-manager',
     name: 'Run Manager',
-    category: 'Sistema Web',
-    status: 'Online',
     description: 'Sistema completo de gestão de processos e tarefas com automações e controle em tempo real.',
     image: '/RUN%20MANAGER.png',
     link: 'https://www.runmanager.online',
@@ -78,8 +61,6 @@ const PROJECTS: Project[] = [
   {
     id: 'facilita-ai',
     name: 'Facilita Aí',
-    category: 'SaaS',
-    status: 'Em breve',
     description: 'Marketplace de serviços locais que conecta prestadores a clientes com agilidade.',
     image: '/facilitaai.png',
     link: 'https://www.facilitai.online',
@@ -89,8 +70,6 @@ const PROJECTS: Project[] = [
   {
     id: 'pedyo',
     name: 'Pedyo',
-    category: 'Sistema Web',
-    status: 'Em desenvolvimento',
     description: 'Cardápio digital inteligente com gestão de pedidos em tempo real para restaurantes.',
     image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?q=75&w=800&auto=format&fit=crop&fm=webp',
     link: '#',
@@ -100,8 +79,6 @@ const PROJECTS: Project[] = [
   {
     id: 'jp-producoes',
     name: 'JP Produções',
-    category: 'Landing Page',
-    status: 'Online',
     description: 'Presença digital profissional para estúdio de produção audiovisual.',
     image: '/JP%20PRODU%C3%87%C3%95ES.png',
     link: 'https://www.jpproducoes.online',
@@ -120,18 +97,16 @@ const SERVICES = [
 ];
 
 const PROOF_IMAGES = [
-  'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=75&w=600&auto=format&fit=crop&fm=webp',
-  'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?q=75&w=600&auto=format&fit=crop&fm=webp',
+  '/VELLOX.png',
+  '/XPOST.png',
+  '/RUN%20MANAGER.png',
+  '/facilitaai.png',
+  '/JP%20PRODU%C3%87%C3%95ES.png',
+  '/VELLOX.png',
+  '/XPOST.png',
+  '/RUN%20MANAGER.png',
+  '/facilitaai.png',
+  '/JP%20PRODU%C3%87%C3%95ES.png',
 ];
 
 // ─── Hero Particle Background ─────────────────────────────────────────────────
@@ -262,7 +237,6 @@ const PhoneMockup: React.FC<{ src: string }> = ({ src }) => (
 // ─── Project Card ─────────────────────────────────────────────────────────────
 
 const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, index }) => {
-  const status = STATUS_CONFIG[project.status];
   return (
     <motion.div
       initial={{ opacity: 0, y: 32 }}
@@ -277,18 +251,6 @@ const ProjectCard: React.FC<{ project: Project; index: number }> = ({ project, i
         <img src={project.image} alt={project.name} loading="lazy"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-zinc-900/30 to-transparent" />
-        <div className="absolute top-3 left-3">
-          <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-widest backdrop-blur-sm
-            ${project.accentGreen ? 'bg-purple-500/15 border border-purple-500/30 text-purple-400' : 'bg-fuchsia-500/15 border border-fuchsia-500/30 text-fuchsia-400'}`}>
-            {project.category}
-          </span>
-        </div>
-        <div className="absolute top-3 right-3">
-          <span className={`flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold backdrop-blur-sm bg-black/60 border border-white/10 ${status.color}`}>
-            <span className={`w-1.5 h-1.5 rounded-full ${status.dot} ${project.status === 'Online' ? 'animate-pulse' : ''}`} />
-            {project.status}
-          </span>
-        </div>
       </div>
       <div className="flex flex-col flex-1 p-6 gap-4">
         <div>
